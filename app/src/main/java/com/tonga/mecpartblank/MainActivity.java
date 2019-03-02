@@ -1,5 +1,6 @@
 package com.tonga.mecpartblank;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private ListView lista;
     private ArrayList<Maquina> maquinas;
     private Servicio servicio;
@@ -40,12 +41,12 @@ public class MainActivity extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this ,"Cliquiaste la maquina con id "+view.getTag().toString(),Toast.LENGTH_SHORT);
+
             }
         });
     }
     private void obtenerMaquinas() {
-        String ruta = "http://192.168.1.3:3000/api/maquinas";
+        String ruta = "http://192.168.0.70:3000/api/maquinas";
         try{
             servicio = new Servicio();
             servicio.execute(ruta);

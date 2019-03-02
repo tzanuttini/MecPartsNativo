@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class Adapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = View.inflate(mContext,R.layout.items_maquinas,null);
-        Button btnMaquina = (Button) v.findViewById(R.id.btnMaquina);
+        TextView btnMaquina = (TextView) v.findViewById(R.id.tvMaquina);
         btnMaquina.setText(maquinas.get(position).getNombre());
         v.setTag(maquinas.get(position).getId());
         return v;
